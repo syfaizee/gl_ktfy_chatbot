@@ -14,6 +14,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage, ToolMessage
 from langchain_core.tools import tool
 
+
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Kartify Support",
@@ -21,10 +22,11 @@ st.set_page_config(
     layout="centered",
 )
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Load the JSON file and extract values
 file_name = 'config.json'
+# Streamlit automatically fetches OPENAI_API_KEY if named exactly like this
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 with open(file_name, 'r') as file:
     config = json.load(file)
     OPENAI_API_KEY = config.get("OPENAI_API_KEY") # Loading the API Key
