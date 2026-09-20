@@ -21,6 +21,7 @@ st.set_page_config(
     layout="centered",
 )
 
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Load the JSON file and extract values
 file_name = 'config.json'
