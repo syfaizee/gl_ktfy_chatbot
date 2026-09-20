@@ -22,13 +22,12 @@ st.set_page_config(
     layout="centered",
 )
 
-
 # Load the JSON file and extract values
 file_name = 'config.json'
-# Streamlit automatically fetches OPENAI_API_KEY if named exactly like this
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 with open(file_name, 'r') as file:
     config = json.load(file)
+# Streamlit automatically fetches OPENAI_API_KEY if named exactly like this
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
     OPENAI_API_KEY = config.get("OPENAI_API_KEY") # Loading the API Key
     OPENAI_API_BASE = config.get("OPENAI_API_BASE") # Loading the API Base Url
 
